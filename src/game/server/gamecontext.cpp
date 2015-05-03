@@ -652,7 +652,21 @@ void CGameContext::OnMessage(int MsgID, CUnpacker *pUnpacker, int ClientID)
 
 			pPlayer->m_LastChat = Server()->Tick();
 
-			SendChat(ClientID, Team, pMsg->m_pMessage);
+			// If SvDissallowChat is enabled then Admin can write, but players not.
+			if(g_Config.m_SvDisallowChat == 1 && pPlayer->GetTeam() == TEAM_SPECTATORS)
+			{
+				SendChat(ClientID, (Server()->IsAuthed(ClientID)) ? Team : CHAT_SPEC, pMsg->m_pMessage);
+				return;
+			}
+			else if(g_Config.m_SvDisallowChat == 2 && !Server()->IsAuthed(ClientID))
+			{
+				SendChatTarget(ClientID, "Chat was disabled by Administrator");
+				return;
+			}
+			else
+			{
+				SendChat(ClientID, Team, pMsg->m_pMessage);
+			}
 		}
 		else if(MsgID == NETMSGTYPE_CL_CALLVOTE)
 		{

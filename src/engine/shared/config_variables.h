@@ -109,4 +109,7 @@ MACRO_CONFIG_INT(DbgGraphs, dbg_graphs, 0, 0, 1, CFGFLAG_CLIENT, "Performance gr
 MACRO_CONFIG_INT(DbgHitch, dbg_hitch, 0, 0, 0, CFGFLAG_SERVER, "Hitch warnings")
 MACRO_CONFIG_STR(DbgStressServer, dbg_stress_server, 32, "localhost", CFGFLAG_CLIENT, "Server to stress")
 MACRO_CONFIG_INT(DbgResizable, dbg_resizable, 0, 0, 0, CFGFLAG_CLIENT, "Enables window resizing")
+
+//VanillaMod
+MACRO_CONFIG_INT(SvDisallowChat, sv_disallow_chat, 0, 0, 2, CFGFLAG_SERVER, "0 - Enable Chat, 1 - Disable chat for Spectators, 2 - Disable chat for all")
 #endif
