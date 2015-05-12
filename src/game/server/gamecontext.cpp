@@ -1239,7 +1239,7 @@ void CGameContext::ConAddVote(IConsole::IResult *pResult, void *pUserData)
 	}
 
 	// check for duplicate entry
-	CVoteOptionServer *pOption = pSelf->m_pVoteOptionFirst;
+	/*CVoteOptionServer *pOption = pSelf->m_pVoteOptionFirst;
 	while(pOption)
 	{
 		if(str_comp_nocase(pDescription, pOption->m_aDescription) == 0)
@@ -1250,7 +1250,7 @@ void CGameContext::ConAddVote(IConsole::IResult *pResult, void *pUserData)
 			return;
 		}
 		pOption = pOption->m_pNext;
-	}
+	}*/
 
 	// add the option
 	++pSelf->m_NumVoteOptions;
