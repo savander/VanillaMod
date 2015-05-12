@@ -1239,8 +1239,8 @@ void CGameContext::ConAddVote(IConsole::IResult *pResult, void *pUserData)
 	}
 
 	// check for duplicate entry
-	/*CVoteOptionServer *pOption = pSelf->m_pVoteOptionFirst;
-	while(pOption)
+	CVoteOptionServer *pOption = pSelf->m_pVoteOptionFirst;
+	/*while(pOption)
 	{
 		if(str_comp_nocase(pDescription, pOption->m_aDescription) == 0)
 		{
